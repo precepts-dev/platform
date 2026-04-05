@@ -73,12 +73,7 @@ function findStandardFiles(docsRoot: string): string[] {
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
       if (entry.isDirectory()) {
-        // Only look in standards/ subdirectories
-        if (entry.name === "standards" || dir.includes("standards")) {
-          walk(fullPath);
-        } else {
-          walk(fullPath);
-        }
+        walk(fullPath);
       } else if (
         entry.name.endsWith(".md") &&
         !entry.name.startsWith("_") &&
@@ -248,13 +243,10 @@ function main() {
 
   let errorCount = 0;
   let warningCount = 0;
-  let filesChecked = 0;
 
   for (const file of files) {
     const results = validateFile(file);
     if (results.length === 0) continue;
-
-    filesChecked++;
 
     for (const result of results) {
       const icon = result.level === "error" ? "x" : "!";

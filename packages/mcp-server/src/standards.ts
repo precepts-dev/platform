@@ -74,8 +74,8 @@ export function loadStandards(docsRoot: string): Standard[] {
         filePath,
         domain: inferDomain(filePath, docsRoot),
       });
-    } catch {
-      // Skip files that fail to parse
+    } catch (err) {
+      console.error(`Skipping unparsable file: ${filePath}`, err);
     }
   }
 

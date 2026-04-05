@@ -27,9 +27,7 @@ if (!fs.existsSync(STANDARDS_PKG)) {
 }
 
 // Remove existing docs and copy fresh from package
-if (fs.existsSync(DOCS_DIR)) {
-  fs.rmSync(DOCS_DIR, { recursive: true });
-}
+fs.rmSync(DOCS_DIR, { recursive: true, force: true });
 
 fs.cpSync(STANDARDS_PKG, DOCS_DIR, { recursive: true });
 
