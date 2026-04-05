@@ -1,0 +1,39 @@
+name: Revise Existing Standard
+description: Propose a revision to an existing standard or guideline
+title: "[REVISION] "
+labels: ["revision"]
+body:
+  - type: input
+    id: identifier
+    attributes:
+      label: Standard Identifier
+      placeholder: e.g., INTG-STD-001
+    validations:
+      required: true
+
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Change Type
+      options:
+        - Patch (typos, clarifications)
+        - Minor (new optional fields, status change)
+        - Major (breaking changes to requirements)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Proposed Changes
+      description: Describe what should change and why
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact Assessment
+      description: Who/what is affected by this change?
+    validations:
+      required: false

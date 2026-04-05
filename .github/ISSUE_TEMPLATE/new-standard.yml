@@ -1,0 +1,70 @@
+name: Propose New Standard
+description: Propose a new standard or guideline for the repository
+title: "[STANDARD] "
+labels: ["standard-proposal"]
+body:
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      options:
+        - Integration
+        - Product Management
+        - Project Management
+        - UX Design
+        - Security
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Document Type
+      options:
+        - Standard (mandatory, enforceable)
+        - Guideline (recommended, advisory)
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Standard Title
+      placeholder: e.g., "API Naming Conventions"
+    validations:
+      required: true
+
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose
+      description: Why is this standard needed? What problem does it solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Key Requirements
+      description: What are the core rules or recommendations?
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links to RFCs, ISO standards, or existing guidelines this builds on
+    validations:
+      required: false
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Proposed Status
+      options:
+        - DRAFT
+        - RECOMMENDED
+        - MANDATORY
+    validations:
+      required: true

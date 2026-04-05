@@ -1,0 +1,31 @@
+# Licensing
+
+This repository uses a split-license model. Different parts of the
+repository are covered by different licenses:
+
+## Documentation Content - CC BY-SA 4.0
+
+Standards content is maintained in a separate repository
+(precepts-dev/standards) and licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International License.
+
+See LICENSE-CONTENT for details.
+
+## Source Code - AGPL 3.0
+
+All source code files including `packages/`, `.github/workflows/`,
+configuration files (*.ts, *.js, *.json), and any other programming
+any other programming language files are licensed under the GNU Affero
+General Public License v3.0.
+
+See LICENSE-CODE for details.
+
+## Why Two Licenses?
+
+- The **content** license (CC BY-SA 4.0) ensures standards are freely
+  usable by everyone - individuals, companies, and AI tools - while
+  requiring attribution and that derivatives remain open.
+
+- The **code** license (AGPL 3.0) ensures the tooling remains open
+  source while protecting against proprietary forks being deployed
+  as competing services without sharing modifications.

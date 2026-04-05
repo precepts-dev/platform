@@ -1,0 +1,32 @@
+name: Validate Standards
+
+on:
+  pull_request:
+    paths:
+      - "packages/site/docs/**/*.md"
+      - "packages/validator/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run standards validator
+        run: pnpm validate
+
+      - name: Run strict validation (warnings as errors)
+        if: github.base_ref == 'main'
+        run: pnpm validate:strict

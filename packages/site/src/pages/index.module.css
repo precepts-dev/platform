@@ -1,0 +1,143 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 5rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--ifm-background-color) 0%, var(--ifm-code-background) 100%);
+}
+
+.heroBanner h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.heroBanner p {
+  font-size: 1.2rem;
+  color: var(--ifm-font-color-secondary);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1.5rem;
+  }
+
+  .heroBanner h1 {
+    font-size: 2rem;
+  }
+
+  .heroBanner p {
+    font-size: 1rem;
+  }
+}
+
+/* ── Industry Signal (Karpathy quote) ─────────────────────────── */
+.signalSection {
+  padding: 2.5rem 0 3rem;
+  background: var(--ifm-code-background);
+  border-top: 1px solid var(--pr-border);
+  border-bottom: 1px solid var(--pr-border);
+}
+
+.signalHeading {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ifm-font-color-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.signalQuote {
+  max-width: 640px;
+  margin: 0 auto 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--pr-border);
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--pr-shadow-sm);
+}
+
+.signalQuote p {
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--ifm-font-color-base);
+  margin: 0 0 0.75rem;
+}
+
+.signalAttribution {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-size: 0.875rem;
+}
+
+.signalAuthor {
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+}
+
+.signalDate {
+  color: var(--ifm-font-color-secondary);
+}
+
+.signalXLink {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 4px;
+  color: var(--ifm-font-color-secondary);
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.signalXLink:hover {
+  color: var(--ifm-font-color-base);
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] .signalXLink:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.signalXIcon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.signalContext {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 996px) {
+  .signalSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .signalQuote {
+    padding: 1rem 1.25rem;
+  }
+
+  .signalQuote p {
+    font-size: 0.95rem;
+  }
+}

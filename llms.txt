@@ -1,0 +1,38 @@
+# Precepts
+
+> Multi-discipline standards platform. Built for humans. Ready for agents.
+
+Standards are published as machine-readable Markdown with YAML frontmatter, consumable by both humans and AI agents.
+
+## Disciplines
+
+- [Integration Standards](/docs/integration/): API design, events, resilience, observability, data formats
+- [Product Management](/docs/product/): Requirements, roadmapping, prioritization
+- [UX Standards](/docs/ux/): Accessibility, design systems, interaction patterns
+- [Project Management](/docs/project-management/): Ceremonies, estimation, delivery
+
+## Integration Standards (Batch 1)
+
+- [INTG-STD-004 Naming Conventions](/docs/integration/standards/foundational/naming-conventions)
+- [INTG-STD-005 Character Encoding](/docs/integration/standards/data-formats/character-encoding)
+- [INTG-STD-006 Compatibility](/docs/integration/standards/versioning/backward-forward-compatibility)
+- [INTG-STD-008 API Resource Design](/docs/integration/standards/api/resource-design)
+- [INTG-STD-009 Error Handling](/docs/integration/standards/api/error-handling)
+- [INTG-STD-015 Event Envelope](/docs/integration/standards/events/event-envelope)
+- [INTG-STD-029 Observability](/docs/integration/standards/observability/integration-observability)
+- [INTG-STD-033 Resilience Patterns](/docs/integration/standards/resilience/integration-resilience-patterns)
+- [INTG-STD-034 Retry Policy](/docs/integration/standards/resilience/retry-policy)
+- [INTG-STD-035 Timeout](/docs/integration/standards/resilience/timeout)
+
+## AI Distribution
+
+Standards are delivered to AI agents via:
+1. This llms.txt file (AI crawler index)
+2. MCP Server (active querying via Model Context Protocol)
+3. CLAUDE.md (auto-loaded by Claude Code)
+
+## Source
+
+- Standards: https://github.com/precepts-dev/standards
+- Platform: https://github.com/precepts-dev/platform
+- Site: https://precepts.dev

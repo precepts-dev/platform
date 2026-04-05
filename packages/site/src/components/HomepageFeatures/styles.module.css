@@ -1,0 +1,47 @@
+.features {
+  display: flex;
+  align-items: stretch;
+  padding: 3rem 0 4rem;
+  width: 100%;
+}
+
+.featureLink {
+  display: block;
+  height: 100%;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.featureCard {
+  padding: 1.5rem;
+  border: 1px solid var(--pr-border);
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-card-background-color);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  height: 100%;
+}
+
+.featureCard:hover {
+  box-shadow: var(--pr-shadow-md);
+  border-color: var(--ifm-color-primary-lightest);
+  transform: translateY(-2px);
+}
+
+.featureIcon {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.featureCard h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.featureCard p {
+  font-size: 0.875rem;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.6;
+  margin: 0;
+}

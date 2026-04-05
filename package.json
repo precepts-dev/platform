@@ -1,0 +1,24 @@
+{
+  "name": "precepts-platform",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Precepts platform monorepo",
+  "scripts": {
+    "dev": "pnpm --filter @precepts/site start",
+    "build": "pnpm --filter @precepts/site build",
+    "serve": "pnpm --filter @precepts/site serve",
+    "validate": "pnpm --filter @precepts/validator validate",
+    "validate:strict": "pnpm --filter @precepts/validator validate:strict",
+    "typecheck": "pnpm -r run typecheck",
+    "mcp:dev": "pnpm --filter @precepts/mcp-server dev",
+    "mcp:build": "pnpm --filter @precepts/mcp-server build"
+  },
+  "pnpm": {
+    "overrides": {
+      "@precepts/standards": "link:../precepts-standards"
+    }
+  },
+  "engines": {
+    "node": ">=20.0"
+  }
+}
