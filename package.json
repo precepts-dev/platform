@@ -13,11 +13,6 @@
     "mcp:dev": "pnpm --filter @precepts/mcp-server dev",
     "mcp:build": "pnpm --filter @precepts/mcp-server build"
   },
-  "pnpm": {
-    "overrides": {
-      "@precepts/standards": "link:../precepts-standards"
-    }
-  },
   "engines": {
     "node": ">=20.0"
   }
