@@ -133,7 +133,12 @@
 .navbar {
   border-bottom: 1px solid var(--pr-border);
   box-shadow: var(--pr-shadow-sm);
-  backdrop-filter: blur(8px);
+}
+
+@media (min-width: 997px) {
+  .navbar {
+    backdrop-filter: blur(8px);
+  }
 }
 
 .navbar__title {

@@ -32,3 +32,4 @@ pnpm-debug.log*
 # Package manager lockfiles we do not use
 package-lock.json
 yarn.lock
+.claude/scheduled_tasks.lock
