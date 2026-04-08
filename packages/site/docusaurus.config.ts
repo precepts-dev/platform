@@ -41,6 +41,22 @@ const config: Config = {
         docs: {
           path: 'docs',
           sidebarPath: './sidebars.ts',
+          async sidebarItemsGenerator({
+            defaultSidebarItemsGenerator,
+            ...args
+          }) {
+            const items = await defaultSidebarItemsGenerator(args);
+            // When positions tie, Docusaurus alphabetically tiebreaks by source
+            // path, which can put categories (e.g. "Guidelines") before intro docs
+            // (e.g. "Product Management Standards"). Fix: docs sort before categories
+            // at each level so intro/landing pages always appear first.
+            items.sort((a, b) => {
+              if (a.type === 'doc' && b.type === 'category') return -1;
+              if (a.type === 'category' && b.type === 'doc') return 1;
+              return 0;
+            });
+            return items;
+          },
         },
         blog: false,
         theme: {
@@ -66,15 +82,15 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'productSidebar',
-          position: 'left',
-          label: 'Product',
-        },
-        {
-          type: 'docSidebar',
           sidebarId: 'integrationSidebar',
           position: 'left',
           label: 'Integrations',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'productSidebar',
+          position: 'left',
+          label: 'Product',
         },
         {
           type: 'docSidebar',
