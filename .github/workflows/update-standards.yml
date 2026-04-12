@@ -12,7 +12,15 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/create-github-app-token@v1
+          id: app-token
+          with:
+            app-id: ${{ secrets.APP_ID }}
+            private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - uses: actions/checkout@v5
+        with:
+          token: ${{ steps.app-token.outputs.token }}
 
       - uses: pnpm/action-setup@v5
         with:
@@ -27,18 +35,25 @@ jobs:
         run: pnpm install
 
       - name: Update @precepts/standards
-        run: pnpm update @precepts/standards
+        run: pnpm add @precepts/standards@${{ github.event.client_payload.version }}
 
       - name: Create PR
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           VERSION="${{ github.event.client_payload.version }}"
           BRANCH="chore/update-standards-${VERSION}"
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git config user.name "precepts-release-bot[bot]"
+          git config user.email "precepts-release-bot[bot]@users.noreply.github.com"
+
+          if git diff --quiet HEAD; then
+            echo "@precepts/standards is already at ${VERSION}"
+            exit 0
+          fi
+
           git checkout -b "$BRANCH"
           git add packages/site/package.json packages/mcp-server/package.json packages/validator/package.json pnpm-lock.yaml
           git commit -m "chore(deps): update @precepts/standards to ${VERSION}"
           git push origin "$BRANCH"
-          gh pr create --title "chore(deps): update @precepts/standards to ${VERSION}" --body "Auto-generated after @precepts/standards v${VERSION} was published to npm."
+          gh pr create --title "chore(deps): update @precepts/standards to ${VERSION}" --body "Auto-generated after @precepts/standards v${VERSION} was published to npm." --base main
