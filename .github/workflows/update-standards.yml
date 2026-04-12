@@ -38,9 +38,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          git add pnpm-lock.yaml
-          git commit -m "chore: update @precepts/standards to ${VERSION}"
+          git add packages/site/package.json packages/mcp-server/package.json packages/validator/package.json pnpm-lock.yaml
+          git commit -m "chore(deps): update @precepts/standards to ${VERSION}"
           git push origin "$BRANCH"
-          gh pr create \
-            --title "chore: update @precepts/standards to ${VERSION}" \
-            --body "Auto-generated after @precepts/standards v${VERSION} was published to npm."
+          gh pr create --title "chore(deps): update @precepts/standards to ${VERSION}" --body "Auto-generated after @precepts/standards v${VERSION} was published to npm."
