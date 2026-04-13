@@ -9271,6 +9271,7 @@ snapshots:
     optional: true
 
   '@swc/core@1.15.24':
+    requiresBuild: true
     dependencies:
       '@swc/counter': 0.1.3
       '@swc/types': 0.1.26
@@ -10131,7 +10132,8 @@ snapshots:
     dependencies:
       browserslist: 4.28.2
 
-  core-js@3.49.0: {}
+  core-js@3.49.0:
+    requiresBuild: true
 
   core-util-is@1.0.3: {}
 
@@ -10499,6 +10501,7 @@ snapshots:
       vfile-message: 4.0.3
 
   esbuild@0.27.7:
+    requiresBuild: true
     optionalDependencies:
       '@esbuild/aix-ppc64': 0.27.7
       '@esbuild/android-arm': 0.27.7
