@@ -6,7 +6,11 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    dependencies:
+      '@precepts/standards':
+        specifier: 0.2.2
+        version: 0.2.2
 
   packages/mcp-server:
     dependencies:
@@ -1849,6 +1853,9 @@ packages:
 
   '@precepts/standards@0.1.3':
     resolution: {integrity: sha512-ohpeayiTcvTy7+EHVOQMbwJRtA9BtCYPHJo+0fYiLf8/DsG1MHbUVodwveCH/jwZ0v3Hideg+yTM3lYelCzj+A==}
+
+  '@precepts/standards@0.2.2':
+    resolution: {integrity: sha512-GbRGfy050VoAS6Q/l7irbLR5aG1ZXamNMCrtsfFH5iTnsDAKwUSu+ao4LduphGcUqVPkX2ZG0+rFrxOqCQ6fEw==}
 
   '@radix-ui/number@1.1.1':
     resolution: {integrity: sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g==}
@@ -9008,6 +9015,8 @@ snapshots:
   '@polka/url@1.0.0-next.29': {}
 
   '@precepts/standards@0.1.3': {}
+
+  '@precepts/standards@0.2.2': {}
 
   '@radix-ui/number@1.1.1':
     optional: true
