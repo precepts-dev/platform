@@ -15,12 +15,5 @@
   },
   "engines": {
     "node": ">=20.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@swc/core",
-      "core-js",
-      "esbuild"
-    ]
   }
 }
