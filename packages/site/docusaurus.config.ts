@@ -21,8 +21,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://precepts-dev.github.io',
-  baseUrl: '/platform/',
+  url: 'https://docs.precepts.dev',
+  baseUrl: '/',
 
   organizationName: 'precepts-dev',
   projectName: 'platform',
