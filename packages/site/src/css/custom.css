@@ -263,15 +263,34 @@ pre code {
   border-top: 1px solid var(--pr-border);
 }
 
-/* Centre the column group and prevent columns from stretching to fill halves */
+/*
+ * Replace Docusaurus's default flex layout with explicit CSS Grid.
+ * Grid ignores flex properties on children, giving clean column control.
+ * 3 cols → 2 cols → 1 col as screen narrows.
+ */
 .footer__links {
-  justify-content: center;
-  gap: 1rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 3rem;
 }
 
+@media (max-width: 996px) {
+  .footer__links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .footer__links {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Reset the broken flex overrides from before */
 .footer__col {
-  flex: 0 0 auto;
-  min-width: 140px;
+  flex: unset;
+  min-width: unset;
 }
 
 .footer__title {
