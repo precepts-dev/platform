@@ -263,6 +263,17 @@ pre code {
   border-top: 1px solid var(--pr-border);
 }
 
+/* Centre the column group and prevent columns from stretching to fill halves */
+.footer__links {
+  justify-content: center;
+  gap: 1rem 4rem;
+}
+
+.footer__col {
+  flex: 0 0 auto;
+  min-width: 140px;
+}
+
 .footer__title {
   font-weight: 600;
   font-size: 0.875rem;

@@ -13,16 +13,27 @@
   margin-bottom: 1.5rem;
 }
 
-/* Responsive grid: 2 cols on mobile, auto-fills wider cols above 640px */
+/*
+ * Mobile-first: 2 compact tap-friendly columns.
+ * Description hidden — icon + title is enough for navigation on small screens.
+ */
 .disciplineGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
+/*
+ * Tablet/desktop: auto-fit collapses empty tracks (unlike auto-fill),
+ * so 4 cards stay in one centred row instead of leaving a ghost column.
+ * Max width of 260px prevents cards from stretching too wide on large screens.
+ * justify-content: center keeps the grid centred when total < container width.
+ */
 @media (min-width: 640px) {
   .disciplineGrid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+    justify-content: center;
+    gap: 1.25rem;
   }
 }
 
@@ -34,12 +45,18 @@
 }
 
 .featureCard {
-  padding: 1.5rem;
+  padding: 1.25rem 1rem;
   border: 1px solid var(--pr-border);
   border-radius: var(--ifm-global-radius);
   background: var(--ifm-card-background-color);
   transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   height: 100%;
+}
+
+@media (min-width: 640px) {
+  .featureCard {
+    padding: 1.5rem;
+  }
 }
 
 .featureCard:hover {
@@ -49,20 +66,43 @@
 }
 
 .featureIcon {
-  font-size: 1.75rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
   display: block;
 }
 
-.featureCard h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+@media (min-width: 640px) {
+  .featureIcon {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
 }
 
+.featureCard h3 {
+  font-size: 0.925rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  line-height: 1.35;
+}
+
+@media (min-width: 640px) {
+  .featureCard h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Description visible only on tablet/desktop */
 .featureCard p {
-  font-size: 0.875rem;
-  color: var(--ifm-font-color-secondary);
-  line-height: 1.6;
-  margin: 0;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .featureCard p {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--ifm-font-color-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
 }

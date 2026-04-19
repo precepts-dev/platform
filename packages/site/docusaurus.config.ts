@@ -152,6 +152,19 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: 'Open Source',
+          items: [
+            {
+              label: 'Platform',
+              href: 'https://github.com/precepts-dev/platform',
+            },
+            {
+              label: 'Standards',
+              href: 'https://github.com/precepts-dev/standards',
+            },
+          ],
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Precepts. Built with Docusaurus.`,
     },
