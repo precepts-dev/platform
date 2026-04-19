@@ -40,6 +40,7 @@ const config: Config = {
       {
         docs: {
           path: 'docs',
+          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
           async sidebarItemsGenerator({
             defaultSidebarItemsGenerator,
@@ -81,73 +82,73 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'integrationSidebar',
+          type: 'dropdown',
+          label: 'Standards',
           position: 'left',
-          label: 'Integrations',
+          items: [
+            {
+              type: 'docSidebar',
+              sidebarId: 'integrationSidebar',
+              label: 'Integration',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'productSidebar',
+              label: 'Product Management',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'uxSidebar',
+              label: 'UX',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'projectManagementSidebar',
+              label: 'Project Management',
+            },
+          ],
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'productSidebar',
-          position: 'left',
-          label: 'Product',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'uxSidebar',
-          position: 'left',
-          label: 'UX',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'projectManagementSidebar',
-          position: 'left',
-          label: 'Project Management',
+          href: 'https://github.com/precepts-dev/platform',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
     footer: {
       links: [
         {
-          title: 'Docs',
+          title: 'Standards',
           items: [
             {
-              label: 'Integrations',
-              to: '/docs/integration/',
+              label: 'Integration',
+              to: '/integration/',
             },
             {
-              label: 'Product',
-              to: '/docs/product/',
+              label: 'Product Management',
+              to: '/product/',
             },
             {
               label: 'UX',
-              to: '/docs/ux/',
+              to: '/ux/',
             },
             {
               label: 'Project Management',
-              to: '/docs/project-management/',
+              to: '/project-management/',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Connect',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/users/7977273/dishant-kamble',
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/in/dishant-kamble/',
             },
             {
               label: 'X',
               href: 'https://x.com/dishantk',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/precepts-dev/platform',
             },
           ],
         },

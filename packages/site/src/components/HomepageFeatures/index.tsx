@@ -1,21 +1,20 @@
 import type { ReactNode } from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
-type FeatureItem = {
+type DisciplineItem = {
   title: string;
   icon: string;
   link: string;
   description: ReactNode;
 };
 
-const FeatureList: FeatureItem[] = [
+const DisciplineList: DisciplineItem[] = [
   {
     title: 'Product Management',
     icon: '\u{1F4CB}',
-    link: '/docs/product/',
+    link: '/product/',
     description: (
       <>
         Guidelines and standards for Product Management professionals backed by
@@ -26,7 +25,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Integrations',
     icon: '\u{1F517}',
-    link: '/docs/integration/',
+    link: '/integration/',
     description: (
       <>
         Guidelines and standards for Integration teams backed by ISO, IEEE, RFC
@@ -37,7 +36,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'User Experience',
     icon: '\u{1F3A8}',
-    link: '/docs/ux/',
+    link: '/ux/',
     description: (
       <>
         Guidelines and standards for UX/UI professionals backed by WCAG, W3C,
@@ -48,7 +47,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Project Management',
     icon: '\u{1F4C6}',
-    link: '/docs/project-management/',
+    link: '/project-management/',
     description: (
       <>
         Guidelines and standards for Project Management professionals covering
@@ -58,17 +57,15 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({ title, icon, link, description }: FeatureItem) {
+function DisciplineCard({ title, icon, link, description }: DisciplineItem) {
   return (
-    <div className={clsx('col col--3')}>
-      <Link to={link} className={styles.featureLink}>
-        <div className={styles.featureCard}>
-          <span className={styles.featureIcon} role="img">{icon}</span>
-          <Heading as="h3">{title}</Heading>
-          <p>{description}</p>
-        </div>
-      </Link>
-    </div>
+    <Link to={link} className={styles.featureLink}>
+      <div className={styles.featureCard}>
+        <span className={styles.featureIcon} role="img">{icon}</span>
+        <Heading as="h3">{title}</Heading>
+        <p>{description}</p>
+      </div>
+    </Link>
   );
 }
 
@@ -76,9 +73,12 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+        <Heading as="h2" className={styles.sectionHeading}>
+          Browse Standards
+        </Heading>
+        <div className={styles.disciplineGrid}>
+          {DisciplineList.map((props, idx) => (
+            <DisciplineCard key={idx} {...props} />
           ))}
         </div>
       </div>

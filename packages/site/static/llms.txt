@@ -1,9 +1,7 @@
 # Precepts
 
 > Multi-discipline standards platform. Machine-readable standards for humans and AI agents.
-
-The canonical llms.txt is served from the site:
-https://docs.precepts.dev/llms.txt
+> Standards are published as Markdown with YAML frontmatter, consumable by agents via MCP, llms.txt, and CLAUDE.md.
 
 ## Schema
 
@@ -11,6 +9,7 @@ Identifier pattern: [INTG|PRD|PRJ|UX|SEC]-[STD|GDL|GOV|BP]-NNN
 Status values: DRAFT, MANDATORY, RECOMMENDED, DEPRECATED
 Document types: standard, guideline, governance, best-practice
 Domains: INTEGRATION, PRODUCT-MANAGEMENT, PROJECT-MANAGEMENT, UX, SECURITY
+Version: semver (patch = typo fix, minor = new fields/status change, major = breaking)
 
 ## Disciplines
 
@@ -31,6 +30,13 @@ Domains: INTEGRATION, PRODUCT-MANAGEMENT, PROJECT-MANAGEMENT, UX, SECURITY
 - [INTG-STD-033 Resilience Patterns](https://docs.precepts.dev/integration/standards/resilience/integration-resilience-patterns): Circuit breaker, bulkhead, and fallback patterns for integration resilience
 - [INTG-STD-034 Retry Policy](https://docs.precepts.dev/integration/standards/resilience/retry-policy): Exponential backoff, jitter, max-attempt, and idempotency requirements for retries
 - [INTG-STD-035 Timeout](https://docs.precepts.dev/integration/standards/resilience/timeout): Connection, read, and write timeout standards per integration tier
+
+## AI Distribution
+
+Standards are delivered to AI agents via:
+1. This file — AI crawler index at https://docs.precepts.dev/llms.txt
+2. MCP Server — active querying via Model Context Protocol (see platform repo)
+3. CLAUDE.md — auto-loaded context for Claude Code sessions in this repository
 
 ## Source
 

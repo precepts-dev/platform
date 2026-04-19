@@ -1,8 +1,29 @@
 .features {
-  display: flex;
-  align-items: stretch;
   padding: 3rem 0 4rem;
   width: 100%;
+}
+
+.sectionHeading {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ifm-font-color-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive grid: 2 cols on mobile, auto-fills wider cols above 640px */
+.disciplineGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .disciplineGrid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
 }
 
 .featureLink {
