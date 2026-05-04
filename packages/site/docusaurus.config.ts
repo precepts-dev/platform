@@ -29,6 +29,18 @@ const config: Config = {
 
   onBrokenLinks: 'throw',
 
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'alternate',
+        type: 'text/plain',
+        title: 'AI Index',
+        href: '/llms.txt',
+      },
+    },
+  ],
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -114,6 +126,12 @@ const config: Config = {
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'communitySidebar',
+          label: 'Contributing',
+          position: 'right',
+        },
       ],
     },
     footer: {
@@ -162,6 +180,19 @@ const config: Config = {
             {
               label: 'Standards',
               href: 'https://github.com/precepts-dev/standards',
+            },
+          ],
+        },
+        {
+          title: 'Tooling',
+          items: [
+            {
+              label: 'MCP Server',
+              href: 'https://github.com/precepts-dev/platform/tree/main/packages/mcp-server',
+            },
+            {
+              label: 'llms.txt — AI agent index',
+              href: 'https://docs.precepts.dev/llms.txt',
             },
           ],
         },

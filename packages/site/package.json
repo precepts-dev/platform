@@ -5,8 +5,9 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "sync-standards": "tsx scripts/sync-standards.ts",
-    "start": "pnpm run sync-standards && docusaurus start",
-    "build": "pnpm run sync-standards && docusaurus build",
+    "generate-llms-txt": "tsx scripts/generate-llms-txt.ts",
+    "start": "pnpm run sync-standards && pnpm run generate-llms-txt && docusaurus start",
+    "build": "pnpm run sync-standards && pnpm run generate-llms-txt && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
