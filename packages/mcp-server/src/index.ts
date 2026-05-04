@@ -9,10 +9,14 @@ import { loadStandards, searchStandards } from "./standards.js";
 
 const require_ = createRequire(import.meta.url);
 
-// Resolve docs root: prefer env var, then locate @precepts/standards package
+// Resolve docs root: prefer env var, then locate @precepts/standards via its exported schema file
 const DOCS_ROOT =
   process.env.PRECEPTS_DOCS_ROOT ??
-  path.join(path.dirname(require_.resolve("@precepts/standards/package.json")), "standards");
+  path.join(
+    path.dirname(require_.resolve("@precepts/standards/schema/standards.schema.json")),
+    "..",
+    "standards"
+  );
 
 const server = new McpServer({
   name: "precepts-standards",
