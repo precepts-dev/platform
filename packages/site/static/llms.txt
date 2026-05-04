@@ -18,18 +18,26 @@ Version: semver (patch = typo fix, minor = new fields/status change, major = bre
 - [UX Standards](https://docs.precepts.dev/ux/): Accessibility, design systems, interaction patterns
 - [Project Management](https://docs.precepts.dev/project-management/): Ceremonies, estimation, delivery practices
 
-## Integration Standards (Published)
+## Integration
 
-- [INTG-STD-004 Naming Conventions](https://docs.precepts.dev/integration/standards/foundational/naming-conventions): Rules for naming APIs, events, fields, and services across all integration boundaries
-- [INTG-STD-005 Character Encoding](https://docs.precepts.dev/integration/standards/data-formats/character-encoding): UTF-8 as the mandatory encoding for all integration payloads
-- [INTG-STD-006 Backward & Forward Compatibility](https://docs.precepts.dev/integration/standards/versioning/backward-forward-compatibility): Non-breaking change rules, deprecation windows, consumer compatibility guarantees
-- [INTG-STD-008 API Resource Design](https://docs.precepts.dev/integration/standards/api/resource-design): REST resource modeling, URL structure, HTTP method semantics
-- [INTG-STD-009 Error Handling](https://docs.precepts.dev/integration/standards/api/error-handling): Standardized error response envelope, status codes, problem detail format
-- [INTG-STD-015 CloudEvents Envelope](https://docs.precepts.dev/integration/standards/events/event-envelope): CloudEvents 1.0-compliant event envelope for all domain events
-- [INTG-STD-029 Integration Observability](https://docs.precepts.dev/integration/standards/observability/integration-observability): Logging, distributed tracing, and metrics standards for integration layers
-- [INTG-STD-033 Resilience Patterns](https://docs.precepts.dev/integration/standards/resilience/integration-resilience-patterns): Circuit breaker, bulkhead, and fallback patterns for integration resilience
-- [INTG-STD-034 Retry Policy](https://docs.precepts.dev/integration/standards/resilience/retry-policy): Exponential backoff, jitter, max-attempt, and idempotency requirements for retries
-- [INTG-STD-035 Timeout](https://docs.precepts.dev/integration/standards/resilience/timeout): Connection, read, and write timeout standards per integration tier
+- [INTG-GOV-001 Integration Styles](https://docs.precepts.dev/integration/governance/integration-styles) [MANDATORY]: Every service boundary is an integration contract.
+- [INTG-STD-001 Date Format](https://docs.precepts.dev/integration/standards/data-formats/date-format) [MANDATORY]: All date values transmitted across any interface MUST follow the ISO-8601 format.
+- [INTG-STD-002 Date and Time](https://docs.precepts.dev/integration/standards/data-formats/datetime-formats) [MANDATORY]: This standard defines the REQUIRED representation of date and time values exchanged across all integration boundaries.
+- [INTG-STD-003 Money and Currency](https://docs.precepts.dev/integration/standards/data-formats/monetary-format) [MANDATORY]: Monetary values represented as IEEE 754 floating-point numbers suffer from precision loss: 0.1 + 0.2 ≠ 0.3 in binary floating-point arithmetic.
+- [INTG-STD-004 Integration Naming Conventions](https://docs.precepts.dev/integration/standards/foundational/naming-conventions) [MANDATORY]: This standard defines MANDATORY naming conventions for all artifacts exchanged across integration boundaries - JSON fields, REST API paths, event types, queue topics, HTTP headers, enum values, query parameters, and file names.
+- [INTG-STD-005 Character Encoding](https://docs.precepts.dev/integration/standards/data-formats/character-encoding) [MANDATORY]: This standard defines the REQUIRED character encoding for all text data exchanged across integration boundaries.
+- [INTG-STD-006 Backward and Forward Compatibility](https://docs.precepts.dev/integration/standards/versioning/backward-forward-compatibility) [MANDATORY]: Integration contracts are long-lived shared agreements.
+- [INTG-STD-008 API Resource Design and Naming](https://docs.precepts.dev/integration/standards/api/resource-design) [MANDATORY]: This standard defines the required structure for RESTful API resources, URL paths, HTTP method usage, collection patterns, and operation semantics across all integration boundaries.
+- [INTG-STD-009 API Error Handling](https://docs.precepts.dev/integration/standards/api/error-handling) [MANDATORY]: All HTTP API error responses MUST use the RFC 9457 Problem Details format (application/problem+json).
+- [INTG-STD-015 Event Envelope Standard](https://docs.precepts.dev/integration/standards/events/event-envelope) [MANDATORY]: This standard mandates CloudEvents v1.0.2 as the universal event envelope for all events produced, consumed, or relayed across integration boundaries.
+- [INTG-STD-029 Integration Observability](https://docs.precepts.dev/integration/standards/observability/integration-observability) [MANDATORY]: Every integration action - API call, event, file transfer, or agent handshake - MUST be traceable from origin to destination.
+- [INTG-STD-033 Integration Resilience Patterns](https://docs.precepts.dev/integration/standards/resilience/integration-resilience-patterns) [MANDATORY]: This standard defines MANDATORY resilience patterns for all integration points to ensure graceful degradation, automatic recovery, and full observability under failure.
+- [INTG-STD-034 Retry Policy](https://docs.precepts.dev/integration/standards/resilience/retry-policy) [MANDATORY]: Uncontrolled retries are a leading cause of cascading failures.
+- [INTG-STD-035 Timeout Standard](https://docs.precepts.dev/integration/standards/resilience/timeout) [MANDATORY]: Every external call - whether to an API, database, message broker, or file system - MUST have an explicit timeout.
+
+## Product Management
+
+- [PRD-GDL-001 Requirement Document](https://docs.precepts.dev/product/Guidelines/requirement-document) [DRAFT]
 
 ## AI Distribution
 
