@@ -1824,9 +1824,6 @@ packages:
   '@precepts/standards@0.3.1':
     resolution: {integrity: sha512-pC/EPH1o8xzsccW+gFIVY9uftpF8Tg53ckjsRCTJZW3YP+6Uq09+aZcED+pW4sp44Vx7b9TxPPC+D6a0fzihzA==}
 
-  '@precepts/standards@0.3.1':
-    resolution: {integrity: sha512-pC/EPH1o8xzsccW+gFIVY9uftpF8Tg53ckjsRCTJZW3YP+6Uq09+aZcED+pW4sp44Vx7b9TxPPC+D6a0fzihzA==}
-
   '@radix-ui/number@1.1.1':
     resolution: {integrity: sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g==}
 
@@ -8869,8 +8866,6 @@ snapshots:
       config-chain: 1.1.13
 
   '@polka/url@1.0.0-next.29': {}
-
-  '@precepts/standards@0.3.1': {}
 
   '@precepts/standards@0.3.1': {}
 
