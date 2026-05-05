@@ -23,7 +23,7 @@
     "@docusaurus/preset-classic": "3.10.0",
     "@easyops-cn/docusaurus-search-local": "^0.54.1",
     "@mdx-js/react": "^3.0.0",
-    "@precepts/standards": "^0.2.4",
+    "@precepts/standards": "^0.3.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
