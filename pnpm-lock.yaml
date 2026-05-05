@@ -54,8 +54,8 @@ importers:
         specifier: ^3.0.0
         version: 3.1.1(@types/react@19.2.14)(react@19.2.5)
       '@precepts/standards':
-        specifier: ^0.3.0
-        version: 0.3.0
+        specifier: ^0.3.1
+        version: 0.3.1
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
@@ -1823,6 +1823,9 @@ packages:
 
   '@precepts/standards@0.3.0':
     resolution: {integrity: sha512-ABgkhIrdD+1YQH4gkiHtmPv+rGndnL6U+2QOqWYH17NY1blC1YF1Oy20wzTsjI44T/yOV/b1viT7WXZPcP6feg==}
+
+  '@precepts/standards@0.3.1':
+    resolution: {integrity: sha512-pC/EPH1o8xzsccW+gFIVY9uftpF8Tg53ckjsRCTJZW3YP+6Uq09+aZcED+pW4sp44Vx7b9TxPPC+D6a0fzihzA==}
 
   '@radix-ui/number@1.1.1':
     resolution: {integrity: sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g==}
@@ -8868,6 +8871,8 @@ snapshots:
   '@polka/url@1.0.0-next.29': {}
 
   '@precepts/standards@0.3.0': {}
+
+  '@precepts/standards@0.3.1': {}
 
   '@radix-ui/number@1.1.1':
     optional: true
