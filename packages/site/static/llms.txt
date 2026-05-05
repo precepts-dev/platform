@@ -39,6 +39,27 @@ Version: semver (patch = typo fix, minor = new fields/status change, major = bre
 
 - [PRD-GDL-001 Requirement Document](https://docs.precepts.dev/product/Guidelines/requirement-document) [DRAFT]
 
+## Security
+
+- [SEC-BP-001 Passkeys and Phishing-Resistant Authentication](https://docs.precepts.dev/security/best-practices/passkeys) [RECOMMENDED]: This best practice document provides implementation guidance for passkeys (FIDO2/WebAuthn-based authentication) as the preferred phishing-resistant authentication method referenced in SEC-STD-001 R-1.
+- [SEC-BP-002 Post-Quantum Cryptography Migration](https://docs.precepts.dev/security/best-practices/post-quantum-migration) [RECOMMENDED]: This best practice document provides implementation guidance for migrating to post-quantum cryptography (PQC) algorithms.
+- [SEC-GDL-001 Data Classification and Handling](https://docs.precepts.dev/security/guidelines/data-classification) [MANDATORY]: This guideline defines a four-tier data classification framework for all data processed, stored, or transmitted by organization systems.
+- [SEC-GDL-002 Security Configuration Hardening](https://docs.precepts.dev/security/guidelines/security-configuration) [RECOMMENDED]: This guideline defines RECOMMENDED configuration hardening practices for HTTP services, containers, and infrastructure.
+- [SEC-GDL-003 AI and LLM Application Security](https://docs.precepts.dev/security/guidelines/ai-llm-security) [RECOMMENDED]: This guideline defines RECOMMENDED security practices for applications that integrate Large Language Models (LLMs) and AI systems.
+- [SEC-GOV-000 Security Governance Framework](https://docs.precepts.dev/security/governance/governance-framework) [MANDATORY]: This document establishes the governance meta-layer for the Precepts Security (SEC) domain.
+- [SEC-GOV-001 Secure Software Development Lifecycle](https://docs.precepts.dev/security/governance/secure-sdlc) [MANDATORY]: This document defines the mandatory security activities that MUST occur at each phase of the software development lifecycle (SDLC).
+- [SEC-GOV-002 Zero Trust Architecture](https://docs.precepts.dev/security/governance/zero-trust) [RECOMMENDED]: This governance document provides RECOMMENDED guidance for adopting Zero Trust Architecture (ZTA) principles.
+- [SEC-GOV-003 Security Incident Response](https://docs.precepts.dev/security/governance/incident-response) [MANDATORY]: This governance document defines MANDATORY requirements for the technical layer of security incident response: detection-to-escalation chains, incident classification, evidence preservation, regulatory notification timelines, and post-incident review.
+- [SEC-GOV-004 Security Risk Assessment Framework](https://docs.precepts.dev/security/governance/risk-assessment) [MANDATORY]: This governance document defines a MANDATORY methodology for conducting security risk assessments.
+- [SEC-STD-001 Identity and Access Management](https://docs.precepts.dev/security/standards/identity/iam) [MANDATORY]: This standard defines MANDATORY requirements for authentication, authorization, session management, and de-provisioning across all systems.
+- [SEC-STD-002 Secrets Management](https://docs.precepts.dev/security/standards/identity/secrets-management) [MANDATORY]: This standard defines MANDATORY requirements for the storage, access, rotation, and revocation of secrets: API keys, passwords, database credentials, private keys, certificates, and other sensitive credentials used by software systems.
+- [SEC-STD-003 Cryptography and Transport Security](https://docs.precepts.dev/security/standards/cryptography/cryptography-tls) [MANDATORY]: This standard defines MANDATORY requirements for cryptographic algorithm selection, key lengths, transport security (TLS), and certificate management across all systems.
+- [SEC-STD-004 Security Logging and Monitoring](https://docs.precepts.dev/security/standards/observability/security-logging) [MANDATORY]: This standard defines MANDATORY requirements for security event logging, log integrity, retention, and alerting.
+- [SEC-STD-005 Input Validation and Injection Prevention](https://docs.precepts.dev/security/standards/application/input-validation) [MANDATORY]: This standard defines MANDATORY requirements for validating all inbound data and preventing injection attacks across all system boundaries.
+- [SEC-STD-006 Software Supply Chain Security](https://docs.precepts.dev/security/standards/application/supply-chain) [MANDATORY]: This standard defines MANDATORY requirements for securing the software supply chain: dependency integrity, Software Bill of Materials (SBOM), vulnerability scanning, build pipeline security, and protection against dependency confusion attacks.
+- [SEC-STD-007 Vulnerability Management](https://docs.precepts.dev/security/standards/application/vulnerability-management) [MANDATORY]: This standard defines MANDATORY requirements for identifying, tracking, prioritising, and remediating security vulnerabilities across all systems and software components.
+- [SEC-STD-008 Workload Identity](https://docs.precepts.dev/security/standards/identity/workload-identity) [MANDATORY]: This standard defines MANDATORY requirements for machine-to-machine (service-to-service) authentication using workload identity.
+
 ## AI Distribution
 
 Standards are delivered to AI agents via:

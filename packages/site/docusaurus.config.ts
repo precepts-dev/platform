@@ -1,6 +1,10 @@
 import { themes as prismThemes } from 'prism-react-renderer';
+import path from 'node:path';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import { discoverDisciplines } from './src/disciplines';
+
+const disciplines = discoverDisciplines(path.join(__dirname, 'docs'));
 
 const config: Config = {
   title: 'Precepts',
@@ -97,28 +101,11 @@ const config: Config = {
           type: 'dropdown',
           label: 'Standards',
           position: 'left',
-          items: [
-            {
-              type: 'docSidebar',
-              sidebarId: 'integrationSidebar',
-              label: 'Integration',
-            },
-            {
-              type: 'docSidebar',
-              sidebarId: 'productSidebar',
-              label: 'Product Management',
-            },
-            {
-              type: 'docSidebar',
-              sidebarId: 'uxSidebar',
-              label: 'UX',
-            },
-            {
-              type: 'docSidebar',
-              sidebarId: 'projectManagementSidebar',
-              label: 'Project Management',
-            },
-          ],
+          items: disciplines.map((d) => ({
+            type: 'docSidebar' as const,
+            sidebarId: d.sidebarId,
+            label: d.label,
+          })),
         },
         {
           href: 'https://github.com/precepts-dev/platform',
@@ -136,27 +123,6 @@ const config: Config = {
     },
     footer: {
       links: [
-        {
-          title: 'Standards',
-          items: [
-            {
-              label: 'Integration',
-              to: '/integration/',
-            },
-            {
-              label: 'Product Management',
-              to: '/product/',
-            },
-            {
-              label: 'UX',
-              to: '/ux/',
-            },
-            {
-              label: 'Project Management',
-              to: '/project-management/',
-            },
-          ],
-        },
         {
           title: 'Connect',
           items: [

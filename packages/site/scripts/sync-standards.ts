@@ -48,8 +48,17 @@ function copyStandards(src: string, dest: string): number {
       fs.mkdirSync(destPath, { recursive: true });
       count += copyStandards(srcPath, destPath);
     } else if (!SKIP_FILES.has(entry.name)) {
-      fs.copyFileSync(srcPath, destPath);
-      if (entry.name.endsWith('.md')) count++;
+      if (entry.name.endsWith('.md')) {
+        // Apply MDX safety pass: `<digit` breaks the MDX compiler (treats it as
+        // a JSX tag). Add a space so `<1` becomes `< 1` — visually identical but
+        // safe for both MDX and plain-Markdown consumers.
+        const raw = fs.readFileSync(srcPath, 'utf-8');
+        const safe = raw.replace(/<(\d)/g, '< $1');
+        fs.writeFileSync(destPath, safe, 'utf-8');
+        count++;
+      } else {
+        fs.copyFileSync(srcPath, destPath);
+      }
     }
   }
 
