@@ -88,6 +88,17 @@ function findStandardFiles(docsRoot: string): string[] {
   return results;
 }
 
+// ── MDX Safety Helpers ────────────────────────────────────────────
+
+// Remove fenced code blocks and inline code so their content is not
+// checked for MDX-unsafe patterns (angle brackets in code are fine).
+function stripCodeSpans(content: string): string {
+  return content
+    .replace(/^```[\s\S]*?^```\s*$/gm, "")   // fenced blocks (```)
+    .replace(/^~~~[\s\S]*?^~~~\s*$/gm, "")   // fenced blocks (~~~)
+    .replace(/`[^`\n]+`/g, "``");            // inline code
+}
+
 // ── Validation Logic ──────────────────────────────────────────────
 
 function validateFile(filePath: string): ValidationError[] {
@@ -212,6 +223,39 @@ function validateFile(filePath: string): ValidationError[] {
         file: relPath,
         level: "warning",
         message: `Missing recommended section: "## ${section}"`,
+      });
+    }
+  }
+
+  // ── MDX safety checks ──────────────────────────────────────
+  // Docusaurus uses MDX which treats `<` as JSX. Angle brackets outside
+  // code blocks must not be immediately followed by a digit or PascalCase
+  // word, or the site build will fail.
+
+  const safeContent = stripCodeSpans(content);
+  const lines = safeContent.split("\n");
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const lineNum = i + 1;
+
+    // `<digit` — always a hard MDX parse failure
+    if (/<\d/.test(line)) {
+      const col = line.search(/<\d/) + 1;
+      errors.push({
+        file: relPath,
+        level: "error",
+        message: `MDX-unsafe at line ${lineNum}:${col} — "<digit" breaks the site build; use "< ${line[col]}" (space) or "&lt;${line[col]}"`,
+      });
+    }
+
+    // `<PascalCase` — MDX parses this as a JSX component; will fail if unclosed
+    if (/<[A-Z][a-z]/.test(line)) {
+      const col = line.search(/<[A-Z][a-z]/) + 1;
+      errors.push({
+        file: relPath,
+        level: "warning",
+        message: `MDX-unsafe at line ${lineNum}:${col} — "<Uppercase" may be parsed as a JSX component; use "&lt;" or add a space after "<"`,
       });
     }
   }
