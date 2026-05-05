@@ -55,6 +55,18 @@ const DisciplineList: DisciplineItem[] = [
       </>
     ),
   },
+  {
+    title: 'Security',
+    icon: '\u{1F512}',
+    link: '/security/',
+    description: (
+      <>
+        Standards and governance for application security, identity and access
+        management, cryptography, and vulnerability management. Backed by NIST,
+        ISO 27001, and OWASP.
+      </>
+    ),
+  },
 ];
 
 function DisciplineCard({ title, icon, link, description }: DisciplineItem) {
