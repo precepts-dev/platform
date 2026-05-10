@@ -25,13 +25,15 @@ function getStatusVariant(status: string): StatusVariant {
 function StandardMetadataBar() {
   const { frontMatter } = useDoc();
 
-  const identifier = frontMatter.identifier as string | undefined;
+  const fm = frontMatter as Record<string, unknown>;
+
+  const identifier = fm.identifier as string | undefined;
   if (!identifier) return null;
 
-  const status = (frontMatter.status as string) ?? '';
-  const version = (frontMatter.version as string) ?? '';
-  const domain = (frontMatter.domain as string) ?? '';
-  const documentType = (frontMatter.documentType as string) ?? '';
+  const status = (fm.status as string) ?? '';
+  const version = (fm.version as string) ?? '';
+  const domain = (fm.domain as string) ?? '';
+  const documentType = (fm.documentType as string) ?? '';
 
   const variant = getStatusVariant(status);
 

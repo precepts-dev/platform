@@ -53,7 +53,19 @@ jobs:
           fi
 
           git checkout -b "$BRANCH"
-          git add packages/site/package.json packages/mcp-server/package.json packages/validator/package.json pnpm-lock.yaml
+          
+          # Create a changeset file for the update
+          cat <<EOF > .changeset/update-standards-\${VERSION//./-}.md
+---
+"@precepts/mcp-server": patch
+"@precepts/site": patch
+"@precepts/validator": patch
+---
+
+chore(deps): update @precepts/standards to ${VERSION}
+EOF
+          
+          git add .changeset/ packages/site/package.json packages/mcp-server/package.json packages/validator/package.json pnpm-lock.yaml
           git commit -m "chore(deps): update @precepts/standards to ${VERSION}"
           git push origin "$BRANCH"
           gh pr create --title "chore(deps): update @precepts/standards to ${VERSION}" --body "Auto-generated after @precepts/standards v${VERSION} was published to npm." --base main

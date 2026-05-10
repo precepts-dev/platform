@@ -1,6 +1,6 @@
 {
   "name": "precepts-platform",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Precepts platform monorepo",
   "scripts": {
@@ -11,9 +11,14 @@
     "validate:strict": "pnpm --filter @precepts/validator validate:strict",
     "typecheck": "pnpm -r run typecheck",
     "mcp:dev": "pnpm --filter @precepts/mcp-server dev",
-    "mcp:build": "pnpm --filter @precepts/mcp-server build"
+    "mcp:build": "pnpm --filter @precepts/mcp-server build",
+    "release": "changeset publish"
   },
   "engines": {
     "node": ">=20.0"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.0"
   }
 }

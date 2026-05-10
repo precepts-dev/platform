@@ -1,9 +1,15 @@
 {
   "name": "@precepts/mcp-server",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "MCP server exposing Precepts standards as tools and resources for AI agents",
   "type": "module",
   "license": "AGPL-3.0-only",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "bin": {
     "precepts-mcp": "dist/index.js"

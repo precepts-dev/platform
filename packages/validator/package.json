@@ -1,6 +1,6 @@
 {
   "name": "@precepts/validator",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "CLI validator for Precepts standard documents",
   "type": "module",
   "license": "AGPL-3.0-only",
