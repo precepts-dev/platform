@@ -1,0 +1,5 @@
+# @precepts/mcp-server
+
+## 1.0.0
+
+Initial Release.

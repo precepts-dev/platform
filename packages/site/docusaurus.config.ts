@@ -119,12 +119,6 @@ const config: Config = {
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
         },
-        {
-          type: 'docSidebar',
-          sidebarId: 'communitySidebar',
-          label: 'Contributing',
-          position: 'right',
-        },
       ],
     },
     footer: {
