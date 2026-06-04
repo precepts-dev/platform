@@ -115,6 +115,30 @@ function generateMissingCategories(dir: string): void {
 
 generateMissingCategories(DOCS_DIR);
 
+// Step 4: Copy CHANGELOG.md to docs/community/changelog.md
+const CHANGELOG_SRC = path.resolve(__dirname, '..', 'CHANGELOG.md');
+const CHANGELOG_DEST = path.resolve(DOCS_DIR, 'community', 'changelog.md');
+if (fs.existsSync(CHANGELOG_SRC)) {
+  fs.mkdirSync(path.dirname(CHANGELOG_DEST), { recursive: true });
+
+  const raw = fs.readFileSync(CHANGELOG_SRC, 'utf-8');
+  // Strip the package-name H1 (e.g. "# @precepts/site\n") — the frontmatter
+  // title renders as the page heading instead.
+  const body = raw.replace(/^#[^\n]*\n\n?/, '');
+
+  const changelogWithFrontmatter = `---
+id: changelog
+title: Changelog
+sidebar_label: Changelog
+sidebar_position: 1
+slug: /changelog
+---
+
+${body}`;
+
+  fs.writeFileSync(CHANGELOG_DEST, changelogWithFrontmatter, 'utf-8');
+}
+
 const parts = [`Synced ${standardsCount} standards from @precepts/standards into docs/`];
 if (metaCount > 0) parts.push(`${metaCount} platform metadata files`);
 if (autoGenCount > 0) parts.push(`${autoGenCount} auto-generated categories`);

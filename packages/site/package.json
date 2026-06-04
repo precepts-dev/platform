@@ -1,6 +1,6 @@
 {
   "name": "@precepts/site",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -33,6 +33,7 @@
     "@docusaurus/module-type-aliases": "3.10.0",
     "@docusaurus/tsconfig": "3.10.0",
     "@docusaurus/types": "3.10.0",
+    "@types/node": "^22.19.17",
     "gray-matter": "^4.0.3",
     "tsx": "^4.19.0",
     "typescript": "~5.6.2"

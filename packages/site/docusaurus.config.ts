@@ -3,6 +3,7 @@ import path from 'node:path';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { discoverDisciplines } from './src/disciplines';
+import packageJson from './package.json';
 
 const disciplines = discoverDisciplines(path.join(__dirname, 'docs'));
 
@@ -108,16 +109,15 @@ const config: Config = {
           })),
         },
         {
+          label: `v${packageJson.version}`,
+          position: 'left',
+          to: '/changelog',
+        },
+        {
           href: 'https://github.com/precepts-dev/platform',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'communitySidebar',
-          label: 'Contributing',
-          position: 'right',
         },
       ],
     },
