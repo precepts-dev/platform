@@ -1,14 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="32" height="32">
-  <style>
-    :root {
-      color: #4A6340;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        color: #8FA688;
-      }
-    }
-  </style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
   <defs>
     <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="currentColor" stop-opacity="0.70"/>
@@ -27,8 +17,8 @@
            L72 73
            H47
            Z" 
-         fill="currentColor" 
-         opacity="0.45"/>
+        fill="currentColor" 
+        opacity="0.45"/>
 
   <!-- center translucent overlap -->
   <rect x="47" y="48" width="25" height="25" fill="currentColor" opacity="0.30"/>

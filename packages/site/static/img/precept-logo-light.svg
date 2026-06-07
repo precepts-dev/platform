@@ -1,4 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28">
-  <rect width="28" height="28" rx="6" fill="#8FA688"/>
-  <text x="14" y="19.5" font-family="system-ui, sans-serif" font-weight="700" font-size="16" fill="#151514" text-anchor="middle">P</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="28" height="28">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8FA688" stop-opacity="0.70"/>
+      <stop offset="100%" stop-color="#8FA688" stop-opacity="0.90"/>
+    </linearGradient>
+  </defs>
+
+  <!-- top-left wing -->
+  <polygon points="22,48 47,48 47,23 47,23" fill="#8FA688" opacity="0.74"/>
+
+  <!-- main body -->
+  <path d="M47 23
+           H89
+           Q97 23 97 31
+           V48
+           L72 73
+           H47
+           Z" 
+         fill="#8FA688" 
+         opacity="0.45"/>
+
+  <!-- center translucent overlap -->
+  <rect x="47" y="48" width="25" height="25" fill="#8FA688" opacity="0.30"/>
+
+  <!-- diagonal inner facet -->
+  <polygon points="47,73 72,73 72,48" fill="#8FA688" opacity="0.75"/>
+
+  <!-- lower square -->
+  <rect x="22" y="73" width="25" height="25" fill="#8FA688" opacity="0.45"/>
 </svg>
