@@ -18,7 +18,7 @@ importers:
   packages/mcp-server:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.12.1
+        specifier: ^1.29.0
         version: 1.29.0(zod@3.25.76)
       '@precepts/standards':
         specifier: ^0.3.1
@@ -27,7 +27,7 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
       zod:
-        specifier: ^3.23.0
+        specifier: ^4.4.3
         version: 3.25.76
     devDependencies:
       '@types/node':
