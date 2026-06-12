@@ -4,6 +4,10 @@
   "description": "MCP server exposing Precepts standards as tools and resources for AI agents",
   "type": "module",
   "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/precepts-dev/platform"
+  },
   "publishConfig": {
     "access": "public"
   },
