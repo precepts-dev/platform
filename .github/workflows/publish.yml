@@ -6,19 +6,13 @@ on:
       - main
   workflow_dispatch:
 
-# Workflow runs in two modes depending on what's in .changeset/:
+# Workflow runs two jobs in parallel after validate passes:
 #
-# Mode A — pending changeset files exist (e.g. after a feature PR is merged):
-#   changesets/action creates or updates a "Version Packages" PR that bumps
-#   package.json versions and writes CHANGELOGs. Nothing is published yet.
+# release — auto-patches, versions, and publishes @precepts/mcp-server to npm.
+#   If a manual changeset file is present it is used as-is (minor/major bumps);
+#   otherwise a patch changeset is auto-created so every merge ships a release.
 #
-# Mode B — no pending changeset files (i.e. the "Version Packages" PR was just merged):
-#   changesets/action runs `pnpm release` (= `changeset publish`), which
-#   publishes packages whose current version is not yet on npm and creates
-#   a GitHub Release per published package.
-#
-# The site is always built and deployed on every push to main, independently
-# of which mode the release job is in.
+# build-site / deploy-site — builds and deploys the Docusaurus site to GitHub Pages.
 
 permissions:
   contents: write
@@ -93,10 +87,9 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
 
-  # Handles changesets: either creates the "Version Packages" PR (Mode A)
-  # or publishes packages to npm and creates GitHub Releases (Mode B).
-  # Only builds the publishable packages (mcp-server); the site build is
-  # handled separately by build-site above.
+  # Auto-patch release: versions and publishes mcp-server on every merge to main.
+  # If no changeset file is present, a patch bump is auto-created so every merge
+  # ships a new version without requiring a manual `pnpm changeset` step.
   release:
     needs: validate
     runs-on: ubuntu-latest
@@ -118,17 +111,36 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Configure git for version commit
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+      - name: Auto-create patch changeset if none present
+        run: |
+          CHANGESETS=$(find .changeset -maxdepth 1 -name "*.md" ! -name "README.md" | wc -l)
+          if [ "$CHANGESETS" -eq 0 ]; then
+            echo "No changeset found — auto-creating patch bump"
+            printf -- '---\n"@precepts/mcp-server": patch\n---\n\nAutomated patch release\n' \
+              > ".changeset/auto-patch-${GITHUB_RUN_ID}.md"
+          fi
+
+      - name: Version packages
+        run: pnpm changeset version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build publishable packages
         run: pnpm --filter @precepts/mcp-server build
 
-      - name: Create Release Pull Request or Publish
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: pnpm release
-          createGithubReleases: true
-          commit: "chore(release): version packages"
-          title: "chore(release): version packages"
+      - name: Publish to npm
+        run: pnpm release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: "true"
+
+      - name: Push version bump commit
+        run: |
+          git add .
+          git diff --staged --quiet || git commit -m "chore(release): version packages [skip ci]"
+          git push
