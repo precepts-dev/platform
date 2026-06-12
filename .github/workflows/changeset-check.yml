@@ -1,23 +1,21 @@
 name: Changeset Check
 
-# On every PR to main, verify that a changeset file is present.
-# This ensures no code change silently skips a version bump.
-# Developers run `pnpm changeset` locally to create a changeset and select
-# the bump type (patch / minor / major) for each affected package.
+# On every PR to main, remind contributors to add a changeset for intentional
+# minor/major bumps. This is advisory only (continue-on-error: true) — the
+# release job auto-creates a patch changeset if none is present, so PRs are
+# never blocked. Add a changeset manually only when a minor or major bump is needed.
 
 on:
   pull_request:
     branches:
       - main
-    # Skip on the auto-generated "Version Packages" PR from changesets/action
-    # (it deliberately has no changeset files — it IS the release commit).
     paths-ignore:
       - ".changeset/**"
 
 jobs:
   changeset-check:
     runs-on: ubuntu-latest
-    # Allow this check to post a status comment on the PR
+    continue-on-error: true
     permissions:
       pull-requests: write
     steps:
@@ -37,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check for changeset
+      - name: Check for changeset (advisory)
         uses: changesets/action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
