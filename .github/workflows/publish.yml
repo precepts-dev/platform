@@ -104,7 +104,8 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: "24"  # Node 24 required for npm OIDC Trusted Publishing
+          registry-url: https://registry.npmjs.org
           cache: pnpm
 
       - name: Install dependencies
