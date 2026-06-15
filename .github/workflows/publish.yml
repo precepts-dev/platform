@@ -141,13 +141,15 @@ jobs:
       - name: Build publishable packages
         run: pnpm --filter @precepts/mcp-server build
 
-      - name: Publish to npm
-        run: pnpm release
-        env:
-          NPM_CONFIG_PROVENANCE: "true"
-
-      - name: Push version bump commit
+      - name: Commit version bump locally
         run: |
           git add .
           git diff --staged --quiet || git commit -m "chore(release): version packages [skip ci]"
-          git push
+
+      - name: Publish to npm and Create GitHub Release
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          NPM_CONFIG_PROVENANCE: "true"
