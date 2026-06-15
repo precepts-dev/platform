@@ -1,6 +1,6 @@
 {
   "name": "@precepts/mcp-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "MCP server exposing Precepts standards as tools and resources for AI agents",
   "type": "module",
   "license": "AGPL-3.0-only",
