@@ -55,14 +55,7 @@ jobs:
           git checkout -b "$BRANCH"
 
           # Create a changeset file for the update
-          cat <<EOF > .changeset/update-standards-${VERSION//./-}.md
----
-"@precepts/mcp-server": patch
-"@precepts/site": patch
----
-
-chore(deps): update @precepts/standards to ${VERSION}
-EOF
+          printf -- "---\n\"@precepts/mcp-server\": patch\n\"@precepts/site\": patch\n---\n\nchore(deps): update @precepts/standards to %s\n" "${VERSION}" > .changeset/update-standards-${VERSION//./-}.md
 
           git add .changeset/ packages/site/package.json packages/mcp-server/package.json packages/validator/package.json pnpm-lock.yaml
           git commit -m "chore(deps): update @precepts/standards to ${VERSION}"
