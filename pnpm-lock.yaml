@@ -21,8 +21,8 @@ importers:
         specifier: ^1.29.0
         version: 1.29.0(zod@4.4.3)
       '@precepts/standards':
-        specifier: ^0.4.2
-        version: 0.4.2
+        specifier: ^0.4.3
+        version: 0.4.3
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -64,8 +64,8 @@ importers:
         specifier: ^3.0.0
         version: 3.1.1(@types/react@19.2.14)(react@19.2.5)
       '@precepts/standards':
-        specifier: ^0.4.2
-        version: 0.4.2
+        specifier: ^0.4.3
+        version: 0.4.3
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
@@ -108,8 +108,8 @@ importers:
         version: 4.0.3
     devDependencies:
       '@precepts/standards':
-        specifier: ^0.4.2
-        version: 0.4.2
+        specifier: ^0.4.3
+        version: 0.4.3
       '@types/node':
         specifier: ^22.0.0
         version: 22.19.17
@@ -1917,8 +1917,8 @@ packages:
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
 
-  '@precepts/standards@0.4.2':
-    resolution: {integrity: sha512-I0CKbCQfTmugCloOFiiNCM4jXij2c3MjjVWCCClyvlaCeQ//1byrXqQu3v3GfsJSS5PaSrSzxNgfBdL40yR2ww==}
+  '@precepts/standards@0.4.3':
+    resolution: {integrity: sha512-ZVIciZ8MMGcSP3p26ENSsKtZcNuqGjxJV/WnFp8eGQc53GvyIjgIl7VD9IWxZ5GBFWrIjOTyRODd1Tyil5MiUQ==}
 
   '@radix-ui/number@1.1.1':
     resolution: {integrity: sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g==}
@@ -9332,7 +9332,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@precepts/standards@0.4.2': {}
+  '@precepts/standards@0.4.3': {}
 
   '@radix-ui/number@1.1.1':
     optional: true
