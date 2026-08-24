@@ -28,6 +28,9 @@ const config: Config = {
 
   url: 'https://docs.precepts.dev',
   baseUrl: '/',
+  trailingSlash: true,
+
+
 
   organizationName: 'precepts-dev',
   projectName: 'platform',

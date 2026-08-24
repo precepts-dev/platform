@@ -142,8 +142,9 @@ for (const domain of orderedDomains) {
   lines.push(`## ${label}`, '');
   for (const e of entries) {
     const desc = e.description ? `: ${e.description}` : '';
+    const cleanUrlPath = e.urlPath.endsWith('/') ? e.urlPath : `${e.urlPath}/`;
     lines.push(
-      `- [${e.identifier} ${e.name}](${SITE_URL}/${e.urlPath}) [${e.status}]${desc}`
+      `- [${e.identifier} ${e.name}](${SITE_URL}/${cleanUrlPath}) [${e.status}]${desc}`
     );
   }
   lines.push('');
