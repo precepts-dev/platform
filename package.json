@@ -7,8 +7,8 @@
     "dev": "pnpm --filter @precepts/site start",
     "build": "pnpm --filter @precepts/site build",
     "serve": "pnpm --filter @precepts/site serve",
-    "validate": "pnpm --filter @precepts/validator validate",
-    "validate:strict": "pnpm --filter @precepts/validator validate:strict",
+    "validate": "tsx tools/validator/src/validate.ts --docs-root ./node_modules/@precepts/standards/standards",
+    "validate:strict": "tsx tools/validator/src/validate.ts --docs-root ./node_modules/@precepts/standards/standards --strict",
     "typecheck": "pnpm -r run typecheck",
     "mcp:dev": "pnpm --filter @precepts/mcp-server dev",
     "mcp:build": "pnpm --filter @precepts/mcp-server build",
@@ -19,6 +19,11 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.7.0",
-    "@changesets/cli": "^2.31.0"
+    "@changesets/cli": "^2.31.0",
+    "@precepts/standards": "^0.4.2",
+    "@types/node": "^22.0.0",
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.19.0",
+    "typescript": "~5.6.2"
   }
 }
