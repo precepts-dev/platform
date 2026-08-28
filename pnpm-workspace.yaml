@@ -1,6 +1,9 @@
 packages:
   - "packages/*"
 
+minimumReleaseAge: 0
+
+
 allowBuilds:
   '@swc/core': true
   core-js: true

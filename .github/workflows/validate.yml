@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - "packages/site/docs/**/*.md"
-      - "packages/validator/**"
+      - "tools/validator/**"
 
 jobs:
   validate:
