@@ -35,7 +35,7 @@ jobs:
         run: pnpm install
 
       - name: Update @precepts/standards
-        run: pnpm add --filter @precepts/site --filter @precepts/mcp-server --filter @precepts/validator @precepts/standards@${{ github.event.client_payload.version }}
+        run: pnpm add --filter @precepts/site --filter @precepts/mcp-server @precepts/standards@${{ github.event.client_payload.version }}
 
       - name: Create PR
         env:
@@ -57,7 +57,7 @@ jobs:
           # Create a changeset file for the update
           printf -- "---\n\"@precepts/mcp-server\": patch\n\"@precepts/site\": patch\n---\n\nchore(deps): update @precepts/standards to %s\n" "${VERSION}" > .changeset/update-standards-${VERSION//./-}.md
 
-          git add .changeset/ packages/site/package.json packages/mcp-server/package.json packages/validator/package.json pnpm-lock.yaml
+          git add .changeset/ packages/site/package.json packages/mcp-server/package.json pnpm-lock.yaml
           git commit -m "chore(deps): update @precepts/standards to ${VERSION}"
           git push origin "$BRANCH"
           gh pr create --title "chore(deps): update @precepts/standards to ${VERSION}" --body "Auto-generated after @precepts/standards v${VERSION} was published to npm." --base main
