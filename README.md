@@ -30,7 +30,7 @@ Standards content lives in a separate repo: [precepts-dev/standards](https://git
 
 This is the **platform** repo (`precepts-dev/platform`). It is a pnpm workspace monorepo that consumes standards from `@precepts/standards` and provides:
 
-- **Docusaurus site** - renders standards for humans at [docs.precepts.dev](https://doc.precepts.dev)
+- **Docusaurus site** - renders standards for humans at [docs.precepts.dev](https://docs.precepts.dev)
 - **MCP server** - serves standards to AI agents via Model Context Protocol
 - **Validator** - validates standard frontmatter and required sections
 
